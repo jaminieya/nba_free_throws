@@ -25,18 +25,16 @@ requirements.txt
 
 ### 1. Clone this repository
 
-```
 git clone https://github.com/jaminieya/nba_free_throws.git
 cd nba_free_throws
-```
+
 
 ### 2. Install dependencies
 
 Make sure you have Python 3.8+ installed. Then run:
 
-```
 pip install -r requirements.txt
-```
+
 
 ### 3. Install ChromeDriver
 
@@ -45,9 +43,7 @@ pip install -r requirements.txt
 
 ### 4. Run the scraper
 
-```
 python main.py
-```
 
 By default, the script scrapes game ID `0022301057` and saves videos into a folder named `0022301057/`.
 

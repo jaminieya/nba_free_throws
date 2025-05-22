@@ -66,8 +66,7 @@ pip install -r requirements.txt
 ```bash
 python main.py \
   --game_id 0042400301 \
-  --game_code ind-vs-nyk \
-  --season 2024-25          # optional; defaults to 2023-24
+
 ```
 
 #### Option B — Full URL

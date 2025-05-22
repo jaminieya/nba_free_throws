@@ -21,19 +21,18 @@ from selenium.webdriver.support import expected_conditions as EC
 from nba_api.stats.static import players
 from nba_api.stats.endpoints import PlayByPlayV2, BoxScoreSummaryV2
 
-
-# Extract arguments
-game_id, game_code = parse_args()
+# NBA Free Throw Video Downloader
+# This script downloads free throw videos from NBA games and saves them in a specified folder.
+# It also generates a metadata CSV file with information about each video.
 
 # Configuration
-# game_id = "0022301057"
-# game_code = "hou-vs-okc"
-# season = "2023-24"
-
-teams = game_code.replace('-vs-', '').upper()
-summary = BoxScoreSummaryV2(game_id=game_id)
-info = summary.get_normalized_dict()
-season = info["GameSummary"][0]["SEASON"]
+game_id = parse_args()
+summary = BoxScoreSummaryV2(game_id=game_id).get_normalized_dict()
+home_team = summary["GameSummary"][0]["GAMECODE"][-6:-3]
+away_team = summary["GameSummary"][0]["GAMECODE"][-3:]
+game_code = f"{home_team.lower()}-vs-{away_team.lower()}"
+teams = f"{home_team}{away_team}"
+season = summary["GameSummary"][0]["SEASON"]
 url = f"https://www.nba.com/game/{game_code}-{game_id}/play-by-play?period=All"
 
 # 1. Load the game page

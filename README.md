@@ -7,7 +7,7 @@ A command-line utility that scrapes **Free Throw** events from any NBA game, dow
 ## 📌 Key Features
 
 * **Flexible CLI** – run the scraper with
-  *either* `--url` **or** the pair `--game_id` + `--game_code` (optionally `--season`).
+  *either* `--url` **or** `--game_id`.
 * **Play-by-play parsing** – pulls live play data and filters for `"Free Throw"` actions only.
 * **Modular design** – core logic lives in reusable helpers inside **`utils/`**.
 * **Dynamic video capture** – Selenium renders the event page and extracts the hidden `<video>` source.
@@ -61,7 +61,7 @@ pip install -r requirements.txt
 
 ### 4. Run the scraper
 
-#### Option A — Game ID + Code
+#### Option A — Game ID
 
 ```bash
 python main.py \

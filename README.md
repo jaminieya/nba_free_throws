@@ -13,13 +13,14 @@ This project scrapes **Free Throw** events from an NBA game and downloads their 
 
 ## 📂 Folder Structure
 
+```
 main.py
 requirements.txt
 0022301057/                  # Automatically created
 ├── 763.mp4
 ├── 764.mp4
 └── ...
-
+```
 
 ## 🚀 How to Run
 

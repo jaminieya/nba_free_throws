@@ -13,8 +13,6 @@ This project scrapes **Free Throw** events from an NBA game and downloads their 
 
 ## 📂 Folder Structure
 
-```
-
 main.py
 requirements.txt
 0022301057/                  # Automatically created
@@ -22,7 +20,6 @@ requirements.txt
 ├── 764.mp4
 └── ...
 
-````
 
 ## 🚀 How to Run
 
@@ -73,4 +70,6 @@ All dependencies are listed in `requirements.txt`.
 
 * NBA.com for providing detailed game data and videos.
 * `selenium` and `BeautifulSoup` open-source communities.
+
+````
 

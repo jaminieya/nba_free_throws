@@ -1,6 +1,7 @@
 import os
 import re
 import csv
+import sys
 import json
 import argparse
 import requests
@@ -10,6 +11,7 @@ import numpy as np
 from utils.shots import shot_number_up_to_event
 from utils.url_builder import build_stats_event_url
 from utils.video_downloader import download_video_from_event_page
+from utils.parse import parse_args
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -17,28 +19,21 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from nba_api.stats.static import players
-from nba_api.stats.endpoints import PlayByPlayV2
+from nba_api.stats.endpoints import PlayByPlayV2, BoxScoreSummaryV2
 
-
-
-# Setup CLI arguments
-parser = argparse.ArgumentParser(description="NBA Free Throw Video Scraper")
-parser.add_argument("--game_id", type=str, required=True, help="NBA Game ID (e.g., 0022301057)")
-parser.add_argument("--game_code", type=str, required=True, help="Game code (e.g., hou-vs-okc)")
-parser.add_argument("--season", type=str, required=True, help="Season (e.g., 2023-24)")
-args = parser.parse_args()
 
 # Extract arguments
-game_id = args.game_id
-game_code = args.game_code
-season = args.season
+game_id, game_code = parse_args()
 
 # Configuration
 # game_id = "0022301057"
 # game_code = "hou-vs-okc"
 # season = "2023-24"
 
-teams = game_code.replace('-vs-', '').upper() 
+teams = game_code.replace('-vs-', '').upper()
+summary = BoxScoreSummaryV2(game_id=game_id)
+info = summary.get_normalized_dict()
+season = info["GameSummary"][0]["SEASON"]
 url = f"https://www.nba.com/game/{game_code}-{game_id}/play-by-play?period=All"
 
 # 1. Load the game page

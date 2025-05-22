@@ -2,6 +2,7 @@ import os
 import re
 import csv
 import json
+import argparse
 import requests
 import urllib.parse
 import pandas as pd
@@ -18,11 +19,26 @@ from selenium.webdriver.support import expected_conditions as EC
 from nba_api.stats.static import players
 from nba_api.stats.endpoints import PlayByPlayV2
 
+
+
+# Setup CLI arguments
+parser = argparse.ArgumentParser(description="NBA Free Throw Video Scraper")
+parser.add_argument("--game_id", type=str, required=True, help="NBA Game ID (e.g., 0022301057)")
+parser.add_argument("--game_code", type=str, required=True, help="Game code (e.g., hou-vs-okc)")
+parser.add_argument("--season", type=str, required=True, help="Season (e.g., 2023-24)")
+args = parser.parse_args()
+
+# Extract arguments
+game_id = args.game_id
+game_code = args.game_code
+season = args.season
+
 # Configuration
-game_id = "0022301057"
-game_code = "hou-vs-okc"
+# game_id = "0022301057"
+# game_code = "hou-vs-okc"
+# season = "2023-24"
+
 teams = game_code.replace('-vs-', '').upper() 
-season = "2023-24"
 url = f"https://www.nba.com/game/{game_code}-{game_id}/play-by-play?period=All"
 
 # 1. Load the game page

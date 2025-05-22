@@ -1,10 +1,3 @@
-# nba_free_throws
-
-
-Sure! Here's a clean and concise `README.md` for your NBA Free Throw Video Scraper project:
-
----
-
 ```markdown
 # 🏀 NBA Free Throw Video Scraper
 
@@ -22,7 +15,7 @@ This project scrapes **Free Throw** events from an NBA game and downloads their 
 
 ```
 
-nba\_video\_scraper.py
+main.py
 requirements.txt
 0022301057/                  # Automatically created
 ├── 763.mp4
@@ -35,16 +28,16 @@ requirements.txt
 
 ### 1. Clone this repository
 
-```bash
-git clone https://github.com/yourusername/nba-free-throw-scraper.git
-cd nba-free-throw-scraper
+```
+git clone https://github.com/jaminieya/nba_free_throws.git
+cd nba_free_throws
 ````
 
 ### 2. Install dependencies
 
 Make sure you have Python 3.8+ installed. Then run:
 
-```bash
+```
 pip install -r requirements.txt
 ```
 
@@ -55,8 +48,8 @@ pip install -r requirements.txt
 
 ### 4. Run the scraper
 
-```bash
-python nba_video_scraper.py
+```
+python main.py
 ```
 
 By default, the script scrapes game ID `0022301057` and saves videos into a folder named `0022301057/`.
@@ -71,7 +64,7 @@ All dependencies are listed in `requirements.txt`.
 
 ## 📌 Notes
 
-* This script is designed for educational and personal use.
+* This script is designed for educational use.
 * Make sure your usage complies with the [NBA's Terms of Use](https://www.nba.com/termsofuse).
 
 ---
